@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "Static hostname: $HOSTNAME"
+echo "Icon name: "
+echo "Chassis: "
+echo "Machine ID: $(cat /etc/machine-id)"
+echo "Boot ID: $(cat /proc/sys/kernel/random/boot_id)"
+echo "Virtualization: $(virt-what)"
+echo "Operating System: $(awk -F= '/PRETTY/ {print $2}' /etc/os-release | cut -c 2- | rev | cut -c 2- | rev )"
+echo "CPE OS Name: $(awk -F = '/CPE_NAME/ {print $2}' /etc/os-release | cut -c 2- | rev | cut -c 2- | rev )"
+echo "Kernel: Linux: $(uname -r)"
+echo "Architecture: $(uname -m)"
